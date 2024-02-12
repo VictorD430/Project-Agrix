@@ -1,10 +1,10 @@
-package com.betrybe.agrix.controllers;
+package com.betrybe.agrix.ebytr.staff.controllers;
 
-import com.betrybe.agrix.controllers.dto.CropDto;
-import com.betrybe.agrix.controllers.dto.FertilizerDto;
-import com.betrybe.agrix.models.entities.Crop;
-import com.betrybe.agrix.models.entities.Fertilizer;
-import com.betrybe.agrix.services.CropService;
+import com.betrybe.agrix.ebytr.staff.controllers.dto.CropDto;
+import com.betrybe.agrix.ebytr.staff.controllers.dto.FertilizerDto;
+import com.betrybe.agrix.ebytr.staff.entity.Crop;
+import com.betrybe.agrix.ebytr.staff.entity.Fertilizer;
+import com.betrybe.agrix.ebytr.staff.service.CropService;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

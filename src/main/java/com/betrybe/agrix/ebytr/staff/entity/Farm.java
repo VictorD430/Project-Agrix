@@ -1,51 +1,46 @@
-package com.betrybe.agrix.models.entities;
+package com.betrybe.agrix.ebytr.staff.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 
 /**
- * Type fertilizer.
+ * Type farm.
  */
 @Entity
-@Table(name = "fertilizer")
-public class Fertilizer {
+@Table(name = "farm")
+public class Farm {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String name;
-  private String brand;
+  private Double size;
 
-  private String composition;
-
-  @ManyToMany(mappedBy = "fertilizers")
+  @OneToMany(mappedBy = "farm")
   @JsonIgnore
   private List<Crop> crops;
 
-  public Fertilizer() {
-  }
-
   /**
-   * New fertilizer.
+   * new Farm.
    *
    * @param id id.
    * @param name name.
-   * @param brand brand.
-   * @param composition composition.
+   * @param size size.
    * @param crops crops.
    */
-  public Fertilizer(Long id, String name, String brand, String composition, List<Crop> crops) {
+  public Farm(Long id, String name, Double size, List<Crop> crops) {
     this.id = id;
     this.name = name;
-    this.brand = brand;
-    this.composition = composition;
+    this.size = size;
     this.crops = crops;
+  }
+
+  public Farm() {
   }
 
   public Long getId() {
@@ -64,20 +59,12 @@ public class Fertilizer {
     this.name = name;
   }
 
-  public String getBrand() {
-    return brand;
+  public Double getSize() {
+    return size;
   }
 
-  public void setBrand(String brand) {
-    this.brand = brand;
-  }
-
-  public String getComposition() {
-    return composition;
-  }
-
-  public void setComposition(String composition) {
-    this.composition = composition;
+  public void setSize(Double size) {
+    this.size = size;
   }
 
   public List<Crop> getCrops() {

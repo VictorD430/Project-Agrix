@@ -1,8 +1,8 @@
-package com.betrybe.agrix.advice;
+package com.betrybe.agrix.ebytr.staff.advice;
 
-import com.betrybe.agrix.exception.CropException;
-import com.betrybe.agrix.exception.FarmException;
-import com.betrybe.agrix.exception.FertilizerException;
+import com.betrybe.agrix.ebytr.staff.exception.CropException;
+import com.betrybe.agrix.ebytr.staff.exception.FarmException;
+import com.betrybe.agrix.ebytr.staff.exception.FertilizerException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,4 +1,4 @@
-package com.betrybe.agrix.exception;
+package com.betrybe.agrix.ebytr.staff.exception;
 
 /**
  * Fertilizer exception.

@@ -1,46 +1,51 @@
-package com.betrybe.agrix.models.entities;
+package com.betrybe.agrix.ebytr.staff.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 
 /**
- * Type farm.
+ * Type fertilizer.
  */
 @Entity
-@Table(name = "farm")
-public class Farm {
+@Table(name = "fertilizer")
+public class Fertilizer {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String name;
-  private Double size;
 
-  @OneToMany(mappedBy = "farm")
+  private String name;
+  private String brand;
+
+  private String composition;
+
+  @ManyToMany(mappedBy = "fertilizers")
   @JsonIgnore
   private List<Crop> crops;
 
+  public Fertilizer() {
+  }
+
   /**
-   * new Farm.
+   * New fertilizer.
    *
    * @param id id.
    * @param name name.
-   * @param size size.
+   * @param brand brand.
+   * @param composition composition.
    * @param crops crops.
    */
-  public Farm(Long id, String name, Double size, List<Crop> crops) {
+  public Fertilizer(Long id, String name, String brand, String composition, List<Crop> crops) {
     this.id = id;
     this.name = name;
-    this.size = size;
+    this.brand = brand;
+    this.composition = composition;
     this.crops = crops;
-  }
-
-  public Farm() {
   }
 
   public Long getId() {
@@ -59,12 +64,20 @@ public class Farm {
     this.name = name;
   }
 
-  public Double getSize() {
-    return size;
+  public String getBrand() {
+    return brand;
   }
 
-  public void setSize(Double size) {
-    this.size = size;
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+
+  public String getComposition() {
+    return composition;
+  }
+
+  public void setComposition(String composition) {
+    this.composition = composition;
   }
 
   public List<Crop> getCrops() {

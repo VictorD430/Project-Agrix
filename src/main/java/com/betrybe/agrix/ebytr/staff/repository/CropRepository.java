@@ -1,6 +1,6 @@
-package com.betrybe.agrix.models.repositories;
+package com.betrybe.agrix.ebytr.staff.repository;
 
-import com.betrybe.agrix.models.entities.Crop;
+import com.betrybe.agrix.ebytr.staff.entity.Crop;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;

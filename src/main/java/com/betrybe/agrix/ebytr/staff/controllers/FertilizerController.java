@@ -1,8 +1,8 @@
-package com.betrybe.agrix.controllers;
+package com.betrybe.agrix.ebytr.staff.controllers;
 
-import com.betrybe.agrix.controllers.dto.FertilizerDto;
-import com.betrybe.agrix.models.entities.Fertilizer;
-import com.betrybe.agrix.services.FertilizerService;
+import com.betrybe.agrix.ebytr.staff.controllers.dto.FertilizerDto;
+import com.betrybe.agrix.ebytr.staff.entity.Fertilizer;
+import com.betrybe.agrix.ebytr.staff.service.FertilizerService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

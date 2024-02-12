@@ -1,11 +1,11 @@
-package com.betrybe.agrix.services;
+package com.betrybe.agrix.ebytr.staff.service;
 
-import com.betrybe.agrix.exception.CropException;
-import com.betrybe.agrix.exception.FertilizerException;
-import com.betrybe.agrix.models.entities.Crop;
-import com.betrybe.agrix.models.entities.Fertilizer;
-import com.betrybe.agrix.models.repositories.CropRepository;
-import com.betrybe.agrix.models.repositories.FertilizerRepository;
+import com.betrybe.agrix.ebytr.staff.exception.CropException;
+import com.betrybe.agrix.ebytr.staff.exception.FertilizerException;
+import com.betrybe.agrix.ebytr.staff.entity.Crop;
+import com.betrybe.agrix.ebytr.staff.entity.Fertilizer;
+import com.betrybe.agrix.ebytr.staff.repository.CropRepository;
+import com.betrybe.agrix.ebytr.staff.repository.FertilizerRepository;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
