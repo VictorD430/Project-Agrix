@@ -2,18 +2,24 @@ package com.betrybe.agrix.ebytr.staff.entity;
 
 
 import com.betrybe.agrix.ebytr.staff.security.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Class representing a person.
  */
 @Entity
-public class Person {
+public class Person implements UserDetails, GrantedAuthority {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,8 +47,58 @@ public class Person {
     return username;
   }
 
+  /**
+   * isAccountNonExpired.
+   *
+   * @return return.
+   */
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
+
+  /**
+   * isAccountNonLocked.
+   *
+   * @return return.
+   */
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  /**
+   * isCredentialsNonExpired.
+   *
+   * @return return.
+   */
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  /**
+   * isEnabled.
+   *
+   * @return return.
+   */
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
+
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  /**
+   * GetAuthorities.
+   *
+   * @return return.
+   */
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return List.of(new SimpleGrantedAuthority(role.getName()));
   }
 
   public String getPassword() {
@@ -59,6 +115,12 @@ public class Person {
 
   public void setRole(Role role) {
     this.role = role;
+  }
+
+  @JsonIgnore
+  @Override
+  public String getAuthority() {
+    return this.getRole().getName();
   }
 
   @Override
