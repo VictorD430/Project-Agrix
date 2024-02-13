@@ -6,6 +6,7 @@ import com.betrybe.agrix.ebytr.staff.exception.FertilizerException;
 import com.betrybe.agrix.ebytr.staff.exception.PersonNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -39,6 +40,11 @@ public class GeneralControllerAdvice {
   @ExceptionHandler(FertilizerException.class)
   public ResponseEntity<String> handleFertilizerNotFound(FertilizerException e) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Fertilizante não encontrado!");
+  }
+
+  @ExceptionHandler(AccessDeniedException.class)
+  public ResponseEntity<String> handleAccessDenied(AccessDeniedException e) {
+    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Acesso negado!");
   }
 
   @ExceptionHandler
